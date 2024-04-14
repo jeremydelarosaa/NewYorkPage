@@ -1,0 +1,48 @@
+@import url("FooterStile.css");
+@import url("TimeLineStile.css");
+@import url("CardStile.css");
+@import url("NavbarStile.css");
+
+:root {
+  --font-size-s: 1.3rem;
+  --font-size-m: 1.6rem;
+  --font-size-l: 2rem;
+  --font-size-xl: 2.6rem;
+  --color-primary: #dadada;
+  --color-gray: #4a5057;
+  --color-design: #00ce79;
+  --color-dark: #090c0f;
+  --color-main: #504e4e;
+  --gap-s: 1rem;
+  --gap-m: calc(var(--gap-s) * 2);
+  --gap-l: calc(var(--gap-s) * 3);
+  --gap-xl: calc(var(--gap-s) * 5);
+  --max-block-width: 800px;
+}
+
+body {
+  background-color: var(--color-main) !important;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.main-container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  gap: calc(20px + 10%);
+  flex-wrap: wrap;
+}
+
+.Form-container {
+  max-width: var(--max-block-width);
+  min-width: 300px;
+  margin: 250px auto;
+  color: var(--color-primary);
+  overflow: hidden;
+}
+
+.mt-6 {
+  margin-top: 300px !important;
+}

@@ -1,0 +1,37 @@
+#main-footer {
+  background-color: var(--color-primary);
+  opacity: 75%;
+}
+
+#footer-top {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: var(--max-block-width);
+  margin-inline: auto;
+}
+
+#footer-top ul {
+  list-style-position: inside;
+  color: var(--color-design);
+}
+
+#footer-top a {
+  text-decoration: none;
+  color: var(--color-gray);
+  transition: color 0.4s ease-out;
+}
+
+#footer-top a:hover {
+  color: var(--color-design);
+}
+
+#footer-bottom {
+  text-align: center;
+  padding-bottom: var(--gap-s);
+  color: var(--color-gray);
+  font-size: var(--font-size-s);
+}
+
+#footer-top > div:nth-child(1) {
+  justify-self: right;
+}
