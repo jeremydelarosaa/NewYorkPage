@@ -1,8 +1,10 @@
+import { useState } from "react";
 import validator from "validator";
 import Alert from "react-bootstrap/Alert";
 import * as API from "../api/Post";
 export const HandleValidator = ({ dati }) => {
   const { Name, LastName, Email, Password, Agree } = dati;
+  const [state, setState] = useState(false);
 
   if (
     !validator.isAlpha(Name) ||
@@ -53,6 +55,12 @@ export const HandleValidator = ({ dati }) => {
       </Alert>
     );
   } else {
-    API.RegisterPost(dati);
+    API.PostRegister(dati, setState);
   }
+
+  return state === true ? (
+    <Alert key="warning" variant="warning">
+      Error:Email already exist
+    </Alert>
+  ) : null;
 };

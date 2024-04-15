@@ -12,7 +12,6 @@ function Register() {
   const [pass, setPass] = useState("");
   const [dati, setDati] = useState();
   const { register, handleSubmit } = useForm();
-
   const handleFormSubmit = (newdati) => {
     setDati(newdati);
   };

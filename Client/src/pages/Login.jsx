@@ -4,24 +4,16 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Navbars from "../components/Navbars";
 import Alert from "react-bootstrap/Alert";
+import * as API from "../api/Post";
+
 function Login() {
   const [validated, setValidated] = useState(false);
   const { register, handleSubmit } = useForm();
   const [error, setError] = useState(false);
-  const mail = "admin@admin.com";
-  const pass = "123";
 
   const handleFormSubmit = (dati) => {
-    if (dati.email === mail && dati.password === pass) {
-      window.location.href = "/Home";
-    } else {
-      setError(true);
-      document.getElementById("Email").value = "";
-      document.getElementById("Password").value = "";
-    }
-    setValidated(true);
+    API.GetLogin(dati, setError);
   };
-
   const HandleError = () => {
     return (
       <Alert key="warning" variant="warning">
@@ -41,17 +33,17 @@ function Login() {
         validated={validated}
         onSubmit={handleSubmit(handleFormSubmit)}
       >
-        {error === true ? <HandleError /> : error}
+        {error === true ? <HandleError /> : null}
 
         <Form.Group className="mb-3">
           <Form.Label>Email address</Form.Label>
           <Form.Control
             id="Email"
             required
-            name="email"
+            name="Email"
             type="email"
             placeholder="Enter email"
-            {...register("email")}
+            {...register("Email")}
           />
           <Form.Text className=" text-light  "></Form.Text>
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -63,12 +55,12 @@ function Login() {
         <Form.Group className="mb-3">
           <Form.Label>Password</Form.Label>
           <Form.Control
-            name="password"
+            name="Password"
             id="Password"
             type="password"
             required
             placeholder="Password"
-            {...register("password")}
+            {...register("Password")}
           />
         </Form.Group>
         <Form.Group className="mb-3">
